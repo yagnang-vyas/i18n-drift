@@ -35,6 +35,25 @@ export async function listSourceFiles(
   return files.filter((file) => isSourceFile(file) && !skip.has(file)).sort();
 }
 
+/** Extracts key usages from every source file. */
+export async function scanUsages(
+  config: ResolvedConfig,
+  localeFiles: readonly string[],
+): Promise<{ usages: Usage[]; files: number }> {
+  const files = await listSourceFiles(config, localeFiles);
+  const usages: Usage[] = [];
+  for (const file of files) {
+    const source = await readProjectFile(config.root, file);
+    usages.push(
+      ...(await extractUsages(source, file, {
+        functions: config.functions,
+        namespaceSeparator: config.namespaceSeparator,
+      })),
+    );
+  }
+  return { usages, files: files.length };
+}
+
 /** Loads locale files, extracts key usages from source files and runs every check. */
 export async function analyze(config: ResolvedConfig): Promise<Analysis> {
   const loaded = await loadLocales(config);
@@ -55,17 +74,7 @@ export async function analyze(config: ResolvedConfig): Promise<Analysis> {
   others.delete(baseLocale);
   const locales = [baseLocale, ...[...others].sort()];
 
-  const files = await listSourceFiles(config, loaded.files);
-  const usages: Usage[] = [];
-  for (const file of files) {
-    const source = await readProjectFile(config.root, file);
-    usages.push(
-      ...(await extractUsages(source, file, {
-        functions: config.functions,
-        namespaceSeparator: config.namespaceSeparator,
-      })),
-    );
-  }
+  const { usages, files } = await scanUsages(config, loaded.files);
 
   const definitions = loaded.definitions.filter((definition) =>
     locales.includes(definition.locale),
@@ -85,7 +94,7 @@ export async function analyze(config: ResolvedConfig): Promise<Analysis> {
     definitions,
     usages,
     findings: sortFindings(findings),
-    scannedFiles: files.length,
+    scannedFiles: files,
     localeFiles: loaded.files,
   };
 }
