@@ -2,12 +2,12 @@
 
 How to set up a local environment, run checks, and work on i18n-drift.
 
-> i18n-drift is in the design phase. The commands below describe the planned developer workflow and will be verified as the code is scaffolded.
-
 ## Prerequisites
 
-- Node.js 20 or newer
+- Node.js 22 or newer (CI runs Node 22 and 24)
 - Git
+
+PHP is **not** required, and never used: PHP files are parsed with a tree-sitter grammar.
 
 ## Git identity
 
@@ -30,17 +30,23 @@ npm run build
 node dist/cli.js --help
 ```
 
-Copy any `.env.example` files to `.env` and fill in values as documented in the README's environment variables section. Never commit `.env` files.
+There are no `.env` files or services; the tool reads only its optional config file and `NO_COLOR`.
 
 ## Everyday commands
 
-Run these before pushing; CI runs the same checks:
+CI runs `npm run check`; run it before pushing:
 
-```bash
-npm run lint
-npm run typecheck
-npm test
-```
+| Command | What it does |
+|---|---|
+| `npm run build` | Bundles `src/cli.ts` to `dist/cli.js` with `tsup` |
+| `npm run typecheck` | `tsc --noEmit` with strict options (`noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`) |
+| `npm run lint` | ESLint (type-aware) and a Prettier format check |
+| `npm run format` | Applies Prettier to the files it manages |
+| `npm test` | Vitest with coverage; fails below 90% lines, branches, functions or statements |
+| `npm run publint` | Validates the package metadata |
+| `npm run check` | All of the above, in CI order |
+
+Formatting is managed by Prettier for code, configuration and workflows. Markdown and the fixture projects are not reformatted automatically, because fixture files must keep their exact bytes.
 
 ## Useful tasks
 
@@ -48,20 +54,42 @@ npm test
 
 ```bash
 node dist/cli.js check --config test/fixtures/laravel-inertia-react/i18n-drift.config.json
+node dist/cli.js check --verbose        # from inside a fixture directory: shows the detected layout
 ```
 
-### Updating snapshots
+### Running a single test file
 
 ```bash
-npm test -- -u
+npx vitest run test/unit/extract-blade.test.ts
 ```
+
+### Changing a fixture project
+
+Every fixture project under `test/fixtures/` has an `expected-findings.json` that the integration tests compare against exactly. After changing a fixture, run the CLI on it, review every difference against the problems you meant to seed, and only then update the expected file:
+
+```bash
+cd test/fixtures/laravel-inertia-react
+node ../../../dist/cli.js check --format json --fail-on never    # compare the "findings" array
+```
+
+Never regenerate an expected file just to make a test pass.
+
+### Fixtures
+
+| Fixture | Purpose |
+|---|---|
+| `laravel-inertia-react` | PHP array and JSON language files for `en`, `hi`, `gu`; Blade views; React TSX pages; every kind of finding is seeded |
+| `react-i18next` | Namespaces, `useTranslation('ns')`, `<Trans>`, the `ns` option, plural forms; no config file (auto-detected) |
+| `blade-only` | Blade directives, `@php` blocks, `{!! !!}`, directive expressions |
+| `clean` | A project that must report nothing (proves there are no false positives) |
+| `safety` | A hostile PHP language file used by the "never executes code" test |
 
 ## Workflow
 
 1. Sync `main` and create a branch (`feat/...`, `fix/...`, `docs/...`).
 2. Make changes with tests.
-3. Run the checks above.
-4. Commit using Conventional Commits, e.g. `feat(cli): ...`.
+3. Run `npm run check`.
+4. Commit using Conventional Commits, e.g. `feat(extractors): ...`.
 5. Verify commit authorship before pushing:
 
    ```bash
@@ -72,17 +100,19 @@ npm test -- -u
 
 ## Code style
 
-- Formatting and linting are enforced by the tools in the checks above; do not disable rules without explanation.
+- Formatting and linting are enforced by the tools above; do not disable rules without a one-line justification next to the exception.
 - Prefer small, pure functions that are easy to test.
-- Public functions and modules have brief docstrings or comments explaining intent.
+- Public functions and modules have brief doc comments explaining intent.
+- Never weaken or skip a test to get a green build.
 
 ## Troubleshooting
 
 | Symptom | Likely cause |
 |---|---|
-| Tests fail with connection errors | Required services (database, Redis) not running, or wrong URL in `.env` |
-| Lint passes locally but fails in CI | Different tool versions; reinstall from the lockfile |
-| Unexpected behavior after pulling | Dependencies or database schema changed; reinstall and re-run migrations |
+| `cli-process` tests fail with a missing `dist/cli.js` | Run `npm run build`; the test also builds it itself |
+| Lint passes locally but fails in CI | Different tool versions; reinstall from the lockfile with `npm ci` |
+| `Language.load` or WASM errors | The `grammars/` directory is missing or incomplete; restore it from git |
+| `check` says it could not detect a layout | Add `i18n-drift.config.json` with `localeFiles` (see the README) or run `i18n-drift init` |
 
 ---
 

@@ -53,7 +53,7 @@ Options:
       --format FORMAT    check: text|json|markdown, keys: text|json         [check, keys]
       --fail-on LEVEL    error|warning|note|never (default: error)          [check]
       --write            Apply the fixes instead of printing them           [fix]
-      --marker TEXT      Prefix for added values (default: "${DEFAULT_MARKER}")  [fix]
+      --marker TEXT      Value prefix for added keys (default "[TODO] ")    [fix]
       --force            Overwrite an existing config file                  [init]
       --verbose          Print the detected layout and counts to stderr
   -v, --version          Print the version

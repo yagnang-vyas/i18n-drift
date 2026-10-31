@@ -78,10 +78,18 @@ the tool cannot see; `*` matches one or more characters, including dots.
   locales, because a runtime lookup would fall back there.
 - Locale files are never scanned as source files.
 
-### D8: No AI tooling metadata
+### D8: JSON handling
 
-The repository contains no agent configuration files or AI attribution. Commits are authored by
-the maintainer only.
+Locale JSON is read with a small position-aware parser (`src/locales/json-ast.ts`) instead of
+`JSON.parse`, because every definition needs a line number and the fixer needs exact offsets. The
+fixer inserts text rather than re-serializing, so integer-like keys keep their order and the file
+keeps its indentation, line endings and trailing newline.
+
+### D9: Locale selection
+
+`baseLocale` defaults to `en`, or to the first locale found when there is no `en`. `locales`
+defaults to every locale found. A locale listed in `locales` without files is checked as empty,
+and `fix --write` creates its JSON files.
 
 ## Checks
 

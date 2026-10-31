@@ -2,7 +2,7 @@
 
 Thank you for your interest in improving i18n-drift, a translation key drift checker for Laravel and JavaScript. This guide explains how to propose changes.
 
-> i18n-drift is currently in the design phase. The most useful contributions right now are feedback on the design documents, use cases, and edge cases. Code contributions will be welcome once the initial scaffolding is published.
+> i18n-drift v0.1.0 is implemented (see the [README](README.md) for the feature status). The most useful contributions are bug reports with a minimal reproduction, extraction edge cases from real projects, and the planned features in the [roadmap](docs/ROADMAP.md).
 
 ## Ground rules
 
@@ -13,7 +13,7 @@ Thank you for your interest in improving i18n-drift, a translation key drift che
 
 ## Project-specific guidelines
 
-- New extractors need fixture projects under `test/fixtures/` and tests proving that comments, unrelated strings, and similarly named functions are ignored.
+- New extractors need unit tests proving that comments, unrelated strings, and similarly named functions are ignored, and a fixture project under `test/fixtures/` with an exactly asserted `expected-findings.json` when they change what the tool reports.
 - Never execute project code; PHP language files must be parsed, not included.
 - `--write` must preserve existing formatting and must never be the default behavior.
 
@@ -52,7 +52,7 @@ i18n-drift uses [Conventional Commits](https://www.conventionalcommits.org/):
 
 Types: `feat`, `fix`, `docs`, `refactor`, `test`, `perf`, `chore`, `ci`, `build`.
 
-Suggested scopes: `cli`, `locales`, `extractors`, `placeholders`, `compare`, `fix`, `reporters`, `action`, `docs`, `ci`.
+Suggested scopes: `cli`, `config`, `locales`, `extractors`, `placeholders`, `compare`, `fix`, `report`, `docs`, `ci`.
 
 Examples:
 
@@ -66,12 +66,10 @@ Commit messages must not contain `Co-authored-by` trailers for AI tools or any A
 
 ## Before opening a pull request
 
-Run the same checks as CI:
+Run the same checks as CI (they need Node.js 22 or newer):
 
 ```bash
-npm run lint
-npm run typecheck
-npm test
+npm run check   # typecheck, lint + formatting, build, tests with coverage, publint
 ```
 
 Then confirm:

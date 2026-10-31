@@ -2,13 +2,13 @@
 
 ## Project status
 
-i18n-drift is in the design phase and has no released versions yet. This policy describes how security reports will be handled once code is published, and applies to any code already in this repository.
+i18n-drift is at version 0.1.0 and has not been published to npm yet. This policy describes how security reports are handled and applies to all code in this repository.
 
 ## Supported versions
 
 | Version | Supported |
 |---|---|
-| Latest release on `main` | Yes (once released) |
+| Latest release on `main` | Yes |
 | Older releases | Only the latest minor release receives security fixes |
 
 ## Reporting a vulnerability

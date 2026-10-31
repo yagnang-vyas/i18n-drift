@@ -4,40 +4,37 @@ This roadmap lists planned work for i18n-drift. It is a statement of intent, not
 
 **Legend:** ✅ Done · 🚧 In progress · 📋 Planned
 
-**Current status:** Design phase. No milestones have been started; nothing below is implemented yet.
+**Current status:** v0.1.0 is implemented and tested. It has not been published to npm yet.
 
 ## Versions
 
 ### v0.1
 
-**Status:** 📋 Planned
+**Status:** ✅ Done
 
-- [ ] JSON and Laravel PHP loaders
-- [ ] JS/TS and PHP/Blade extractors
-- [ ] Missing and unused checks
-- [ ] Text report
+- [x] JSON and Laravel PHP loaders (plus Laravel JSON)
+- [x] JS/TS and PHP/Blade extractors
+- [x] Missing and unused checks
+- [x] Untranslated, empty, extra and placeholder checks (Laravel, ICU and i18next syntaxes)
+- [x] Dynamic key patterns and `unknown-value` reporting
+- [x] Text, JSON and Markdown reports
+- [x] `fix --write` for JSON locale files
+- [x] Layout auto-detection, `init`, CI workflow
 
-**Done when:** A Laravel + Inertia fixture reports exactly the seeded missing and unused keys.
+**Done when:** A Laravel + Inertia fixture reports exactly the seeded missing and unused keys. This is asserted by `test/integration/fixtures.test.ts`, together with the other seeded cases.
+
 ### v0.2
-
-**Status:** 📋 Planned
-
-- [ ] Untranslated, empty, placeholder checks
-- [ ] Dynamic key patterns
-- [ ] JSON and Markdown reports
-
-**Done when:** Placeholder mismatches detected for Laravel, ICU, and i18next syntaxes.
-### v0.3
 
 **Status:** 📋 Planned
 
 - [ ] YAML loader
 - [ ] Vue extractor
 - [ ] next-intl namespaces
-- [ ] `fix --write`
+- [ ] `fix --write` for YAML and for PHP arrays where the structure is simple and statically known
 
 **Done when:** Fixer preserves formatting in JSON and YAML fixtures.
-### v0.4
+
+### v0.3
 
 **Status:** 📋 Planned
 
@@ -46,6 +43,10 @@ This roadmap lists planned work for i18n-drift. It is a statement of intent, not
 - [ ] Docker image
 
 **Done when:** Action runs in a sample repository.
+
+## Known limitations
+
+See the Limitations section of the [README](../README.md#limitations); each item there is a candidate for a future version.
 
 ## Future ideas (not scheduled)
 
@@ -61,7 +62,7 @@ This roadmap lists planned work for i18n-drift. It is a statement of intent, not
 
 ## Tracking
 
-Each item will be tracked as a GitHub issue and grouped into a GitHub milestone of the same name once implementation begins.
+Each item will be tracked as a GitHub issue and grouped into a GitHub milestone of the same name.
 
 ---
 
