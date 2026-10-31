@@ -1,0 +1,191 @@
+[
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "en",
+    "key": "Create invoice",
+    "file": "resources/views/welcome.blade.php",
+    "line": 24,
+    "message": "used once but not defined in \"en\""
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "gu",
+    "key": "admin/users.invite",
+    "file": "app/Http/Controllers/AuthController.php",
+    "line": 15,
+    "message": "used once but not defined in \"gu\""
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "gu",
+    "key": "status.void",
+    "file": "lang/en/status.php",
+    "line": 6,
+    "message": "used through a dynamic key pattern (\"en\" defines it) but not defined in \"gu\""
+  },
+  {
+    "id": "empty",
+    "severity": "error",
+    "locale": "gu",
+    "key": "messages.footer_note",
+    "file": "lang/gu/messages.php",
+    "line": 9,
+    "message": "translation is an empty string"
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "gu",
+    "key": "Dismiss",
+    "file": "resources/js/Pages/Auth/Login.tsx",
+    "line": 13,
+    "message": "used once but not defined in \"gu\""
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "gu",
+    "key": "billing.invoice_overdue",
+    "file": "resources/js/Pages/Billing/Index.tsx",
+    "line": 16,
+    "message": "used once but not defined in \"gu\""
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "gu",
+    "key": "admin/users.title",
+    "file": "resources/js/Pages/Dashboard.tsx",
+    "line": 18,
+    "message": "used once but not defined in \"gu\""
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "gu",
+    "key": "Create invoice",
+    "file": "resources/views/welcome.blade.php",
+    "line": 24,
+    "message": "used once but not defined in \"gu\""
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "hi",
+    "key": "auth.throttle",
+    "file": "app/Http/Controllers/AuthController.php",
+    "line": 13,
+    "message": "used once but not defined in \"hi\""
+  },
+  {
+    "id": "placeholder-mismatch",
+    "severity": "error",
+    "locale": "hi",
+    "key": "messages.welcome_title",
+    "file": "lang/hi/messages.php",
+    "line": 7,
+    "message": "placeholders differ: \"en\" has :name, \"hi\" has :naam"
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "hi",
+    "key": "Create invoice",
+    "file": "resources/views/welcome.blade.php",
+    "line": 24,
+    "message": "used once but not defined in \"hi\""
+  },
+  {
+    "id": "unused",
+    "severity": "warning",
+    "locale": "en",
+    "key": "Archive client",
+    "file": "lang/en.json",
+    "line": 7,
+    "message": "defined but not used by any static key or dynamic key pattern"
+  },
+  {
+    "id": "unused",
+    "severity": "warning",
+    "locale": "en",
+    "key": "admin/users.deprecated_note",
+    "file": "lang/en/admin/users.php",
+    "line": 6,
+    "message": "defined but not used by any static key or dynamic key pattern"
+  },
+  {
+    "id": "unused",
+    "severity": "warning",
+    "locale": "en",
+    "key": "messages.legacy_banner",
+    "file": "lang/en/messages.php",
+    "line": 13,
+    "message": "defined but not used by any static key or dynamic key pattern"
+  },
+  {
+    "id": "untranslated",
+    "severity": "warning",
+    "locale": "gu",
+    "key": "messages.export_csv",
+    "file": "lang/gu/messages.php",
+    "line": 15,
+    "message": "value is identical to the \"en\" value"
+  },
+  {
+    "id": "extra",
+    "severity": "warning",
+    "locale": "hi",
+    "key": "messages.old_promo",
+    "file": "lang/hi/messages.php",
+    "line": 16,
+    "message": "defined in \"hi\" but not in base locale \"en\""
+  },
+  {
+    "id": "dynamic-key",
+    "severity": "note",
+    "locale": null,
+    "key": "roles.*",
+    "file": "app/Http/Controllers/AuthController.php",
+    "line": 17,
+    "message": "key is computed at runtime; assuming it matches \"roles.*\""
+  },
+  {
+    "id": "dynamic-key",
+    "severity": "note",
+    "locale": null,
+    "key": "status.*",
+    "file": "resources/js/Pages/Billing/Index.tsx",
+    "line": 5,
+    "message": "key is computed at runtime; assuming it matches \"status.*\""
+  },
+  {
+    "id": "dynamic-key",
+    "severity": "note",
+    "locale": null,
+    "key": null,
+    "file": "resources/js/Pages/Billing/Index.tsx",
+    "line": 11,
+    "message": "key is computed at runtime and cannot be checked"
+  },
+  {
+    "id": "dynamic-key",
+    "severity": "note",
+    "locale": null,
+    "key": null,
+    "file": "resources/js/lib/notify.ts",
+    "line": 6,
+    "message": "key is computed at runtime and cannot be checked"
+  },
+  {
+    "id": "unknown-value",
+    "severity": "note",
+    "locale": "en",
+    "key": "messages.support_email",
+    "file": "lang/en/messages.php",
+    "line": 12,
+    "message": "value is not statically known"
+  }
+]

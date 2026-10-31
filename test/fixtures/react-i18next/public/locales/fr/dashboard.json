@@ -1,0 +1,10 @@
+{
+  "title": "Tableau de bord",
+  "intro": "Bienvenue sur <1>votre tableau de bord</1>.",
+  "stats": {
+    "revenue": "Revenus",
+    "orders": ""
+  },
+  "empty": "Rien ici pour le moment",
+  "unused_widget": "Widget"
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "en",
+    "key": "dashboard:nothing",
+    "file": "src/Dashboard.tsx",
+    "line": 17,
+    "message": "used once but not defined in \"en\""
+  },
+  {
+    "id": "placeholder-mismatch",
+    "severity": "error",
+    "locale": "fr",
+    "key": "common:greeting",
+    "file": "public/locales/fr/common.json",
+    "line": 4,
+    "message": "placeholders differ: \"en\" has {{name}}, \"fr\" has {{nom}}"
+  },
+  {
+    "id": "empty",
+    "severity": "error",
+    "locale": "fr",
+    "key": "dashboard:stats.orders",
+    "file": "public/locales/fr/dashboard.json",
+    "line": 6,
+    "message": "translation is an empty string"
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "fr",
+    "key": "common:nav.settings",
+    "file": "src/App.tsx",
+    "line": 13,
+    "message": "used once but not defined in \"fr\""
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "fr",
+    "key": "dashboard:nothing",
+    "file": "src/Dashboard.tsx",
+    "line": 17,
+    "message": "used once but not defined in \"fr\""
+  },
+  {
+    "id": "unused",
+    "severity": "warning",
+    "locale": "en",
+    "key": "common:legacy.banner",
+    "file": "public/locales/en/common.json",
+    "line": 10,
+    "message": "defined but not used by any static key or dynamic key pattern"
+  },
+  {
+    "id": "unused",
+    "severity": "warning",
+    "locale": "en",
+    "key": "dashboard:unused_widget",
+    "file": "public/locales/en/dashboard.json",
+    "line": 9,
+    "message": "defined but not used by any static key or dynamic key pattern"
+  },
+  {
+    "id": "untranslated",
+    "severity": "warning",
+    "locale": "fr",
+    "key": "common:cancel",
+    "file": "public/locales/fr/common.json",
+    "line": 3,
+    "message": "value is identical to the \"en\" value"
+  },
+  {
+    "id": "extra",
+    "severity": "warning",
+    "locale": "fr",
+    "key": "common:extra_key",
+    "file": "public/locales/fr/common.json",
+    "line": 14,
+    "message": "defined in \"fr\" but not in base locale \"en\""
+  },
+  {
+    "id": "untranslated",
+    "severity": "warning",
+    "locale": "fr",
+    "key": "dashboard:unused_widget",
+    "file": "public/locales/fr/dashboard.json",
+    "line": 9,
+    "message": "value is identical to the \"en\" value"
+  },
+  {
+    "id": "dynamic-key",
+    "severity": "note",
+    "locale": null,
+    "key": "dashboard:stats.*",
+    "file": "src/Dashboard.tsx",
+    "line": 15,
+    "message": "key is computed at runtime; assuming it matches \"dashboard:stats.*\""
+  }
+]

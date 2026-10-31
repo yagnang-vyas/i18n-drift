@@ -19,7 +19,9 @@ const LOCALE_FILE_IGNORE = ['**/node_modules/**', '**/vendor/**'];
 
 /** Lists, reads and parses every locale file described by the configuration. */
 export async function loadLocales(config: ResolvedConfig): Promise<LoadedLocales> {
-  const wanted = config.locales ? new Set([config.baseLocale, ...config.locales]) : null;
+  // With an automatic base locale every locale must be read so the base can be chosen.
+  const wanted =
+    config.locales && config.baseLocale ? new Set([config.baseLocale, ...config.locales]) : null;
   const definitions: Definition[] = [];
   const diagnostics: Finding[] = [];
   const files = new Set<string>();

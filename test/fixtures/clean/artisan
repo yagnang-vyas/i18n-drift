@@ -1,0 +1,4 @@
+#!/usr/bin/env php
+<?php
+
+// Marker file: its presence tells i18n-drift this fixture is a Laravel project.

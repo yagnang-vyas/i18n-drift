@@ -1,0 +1,10 @@
+{
+  "title": "Dashboard",
+  "intro": "Welcome to <1>your dashboard</1>.",
+  "stats": {
+    "revenue": "Revenue",
+    "orders": "Orders"
+  },
+  "empty": "Nothing here yet",
+  "unused_widget": "Widget"
+}

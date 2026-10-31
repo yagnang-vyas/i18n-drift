@@ -91,7 +91,8 @@ export interface Finding {
 export interface ResolvedConfig {
   /** Absolute project root; all patterns are relative to it. */
   root: string;
-  baseLocale: string;
+  /** The configured base locale, or `null` to pick `en` (or else the first locale found). */
+  baseLocale: string | null;
   /** Explicit locale list, or `null` to use every locale found on disk. */
   locales: string[] | null;
   sources: string[];

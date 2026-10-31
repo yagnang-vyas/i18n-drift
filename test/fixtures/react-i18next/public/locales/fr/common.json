@@ -1,0 +1,15 @@
+{
+  "save": "Enregistrer",
+  "cancel": "Cancel",
+  "greeting": "Bonjour, {{nom}} !",
+  "nav": {
+    "home": "Accueil"
+  },
+  "legacy": {
+    "banner": "Ancienne bannière"
+  },
+  "items_one": "{{count}} article",
+  "items_many": "{{count}} d'articles",
+  "items_other": "{{count}} articles",
+  "extra_key": "Clé en trop"
+}

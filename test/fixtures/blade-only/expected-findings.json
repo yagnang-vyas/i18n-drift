@@ -1,0 +1,29 @@
+[
+  {
+    "id": "placeholder-mismatch",
+    "severity": "error",
+    "locale": "es",
+    "key": "shop.promo.body",
+    "file": "lang/es/shop.php",
+    "line": 9,
+    "message": "placeholders differ: \"en\" has :percent, \"es\" has :porcentaje"
+  },
+  {
+    "id": "missing",
+    "severity": "error",
+    "locale": "es",
+    "key": "shop.cart_empty",
+    "file": "resources/views/shop.blade.php",
+    "line": 7,
+    "message": "used once but not defined in \"es\""
+  },
+  {
+    "id": "unused",
+    "severity": "warning",
+    "locale": "en",
+    "key": "shop.unused_banner",
+    "file": "lang/en/shop.php",
+    "line": 12,
+    "message": "defined but not used by any static key or dynamic key pattern"
+  }
+]

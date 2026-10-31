@@ -18,5 +18,6 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["src", "test", "*.config.ts"]
+  "include": ["src", "test/**/*.ts", "*.config.ts"],
+  "exclude": ["test/fixtures", "node_modules", "dist"]
 }

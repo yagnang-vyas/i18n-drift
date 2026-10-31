@@ -1,0 +1,14 @@
+{
+  "save": "Save",
+  "cancel": "Cancel",
+  "greeting": "Hello, {{name}}!",
+  "nav": {
+    "home": "Home",
+    "settings": "Settings"
+  },
+  "legacy": {
+    "banner": "Old banner"
+  },
+  "items_one": "{{count}} item",
+  "items_other": "{{count}} items"
+}

@@ -1,0 +1,6 @@
+{
+  "baseLocale": "en",
+  "locales": ["en", "hi", "gu"],
+  "dynamicKeyPatterns": ["notifications.*"],
+  "untranslatedAllowlist": ["Lumen Ledger", "messages.brand_*"]
+}
