@@ -1,0 +1,62 @@
+{
+  "name": "i18n-drift",
+  "version": "0.1.0",
+  "description": "Find missing, unused and untranslated translation keys across Laravel and JavaScript code in one check.",
+  "keywords": [
+    "i18n",
+    "laravel",
+    "inertia",
+    "translations",
+    "lint",
+    "cli",
+    "blade",
+    "i18next"
+  ],
+  "license": "MIT",
+  "author": "Yagnang Vyas",
+  "homepage": "https://github.com/yagnang-vyas/i18n-drift#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yagnang-vyas/i18n-drift.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yagnang-vyas/i18n-drift/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "i18n-drift": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "grammars"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "test": "vitest run --coverage",
+    "publint": "publint",
+    "check": "npm run typecheck && npm run lint && npm run build && npm run test && npm run publint"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.3",
+    "web-tree-sitter": "^0.25.10"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.6",
+    "@vitest/coverage-v8": "^5.0.5",
+    "eslint": "^10.14.0",
+    "prettier": "^3.9.10",
+    "publint": "^0.3.25",
+    "tree-sitter-wasms": "^0.1.13",
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.0.5"
+  }
+}

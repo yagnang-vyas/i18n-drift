@@ -1,0 +1,8 @@
+dist
+coverage
+grammars
+node_modules
+package-lock.json
+test/fixtures
+IMPLEMENTATION_BRIEF.md
+*.md
